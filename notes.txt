@@ -1,0 +1,22 @@
+-code structure got clutered very quickly, had to organise the program into seperate cpp and .h files. This makes for a better
+structure, but it did take some effort to migrate the program to this new form, concentrating on safe and logical linkage, scope
+and abstraction i.e. each code module's .h interface exposes only what other modules need and nothing more, no arbitrary read &
+write variables in other modules, all I/O has setter/getter functions that enforce certain rules. For instance the temp sensor
+and potentiometer Dial modules are completley invidible to the wider program, only heat_element.cpp deals with them.
+
+-Exiting ISR's quickly and developing an understanding of their role to signal events, but do minimal actual handling operations.
+This had an effect on the structural design, since at first I had my ISRs doing a lot of the work that is now handled by the main 
+thread of execution.
+
+
+-No analogue comparator, have to sample dial repeatedly
+-Arduino library high level overhead, favour AVR library; direct register operation
+-Button bouncing - implement lockout mechanism
+-Event monitor system uses a lot of strings which consumed substantial amount of SRAM: shift burdon to flash instruction
+memory with F("string"), have a switch statement in the event handler function for every possible event, rather than storing
+& passing strings from the caller side.
+
+-ATMega328's 8-bit architecture made non 8-bit types more costly for speed as well as memory. Some amount of program design
+revolved around using eliminating non 8-bit variables. This presented some challenge, and some sacrifice of data resolution
+in some cases. For example the event struct has an 8-bit value variable, but for the ADC and temp sensor their values are greater
+8 bits

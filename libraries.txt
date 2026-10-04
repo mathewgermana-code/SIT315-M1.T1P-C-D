@@ -1,0 +1,8 @@
+# Wokwi Library List
+# See https://docs.wokwi.com/guides/libraries
+
+PinChangeInterrupt
+ChipNorm_TM1637
+DIYables_4Digit7Segment_TM1637
+OneWire
+DallasTemperature

@@ -1,0 +1,5 @@
+{
+  "version": 1,
+  "sketch": "arduino_oven_relay.ino",
+  "board": "arduino-uno"
+}

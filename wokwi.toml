@@ -1,0 +1,5 @@
+[wokwi]
+version = 1
+gdbServerPort = 3333
+firmware = "build/arduino_oven_relay.ino.hex"
+elf = "build/arduino_oven_relay.ino.elf"

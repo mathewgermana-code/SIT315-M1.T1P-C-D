@@ -1,0 +1,158 @@
+{
+  "version": 1,
+  "author": "Tony Soprano",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-breadboard", "id": "bb1", "top": -185.4, "left": -179.6, "attrs": {} },
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 29.4, "left": -0.6, "attrs": {} },
+    { "type": "wokwi-potentiometer", "id": "pot1", "top": -298.9, "left": 230.2, "attrs": {} },
+    { "type": "wokwi-led", "id": "led1", "top": -109.2, "left": -25, "attrs": { "color": "red" } },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": -24,
+      "left": -38.95,
+      "rotate": 90,
+      "attrs": { "value": "1000" }
+    },
+    {
+      "type": "wokwi-photoresistor-sensor",
+      "id": "ldr1",
+      "top": -352,
+      "left": -325.6,
+      "attrs": { "threshold": "4.95", "lux": "0" }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": -420,
+      "left": 145.8,
+      "attrs": { "volume": "0.1" }
+    },
+    {
+      "type": "wokwi-gas-sensor",
+      "id": "gas1",
+      "top": -407.2,
+      "left": -54.7,
+      "rotate": 90,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-tm1637-7segment",
+      "id": "sevseg1",
+      "top": -297.64,
+      "left": 323.83,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": 172.2,
+      "left": 358.2,
+      "rotate": 90,
+      "attrs": { "color": "green", "xray": "1" }
+    },
+    {
+      "type": "wokwi-pushbutton-6mm",
+      "id": "btn2",
+      "top": 182.9,
+      "left": 339.5,
+      "rotate": 90,
+      "attrs": { "color": "green", "xray": "1" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn3",
+      "top": 162.6,
+      "left": 271.8,
+      "rotate": 90,
+      "attrs": { "color": "green", "xray": "1" }
+    },
+    {
+      "type": "wokwi-ds18b20",
+      "id": "temp1",
+      "top": 69.62,
+      "left": -337.23,
+      "rotate": 270,
+      "attrs": { "temperature": "-44.1" }
+    },
+    {
+      "type": "wokwi-relay-module",
+      "id": "relay1",
+      "top": -538.2,
+      "left": -60.8,
+      "rotate": 180,
+      "attrs": {}
+    },
+    { "type": "wokwi-gate-and-2", "id": "and1", "top": -76.8, "left": -364.8, "attrs": {} },
+    {
+      "type": "wokwi-led",
+      "id": "led2",
+      "top": 164.8,
+      "left": -197.4,
+      "rotate": 270,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": 186.35,
+      "left": -134.4,
+      "attrs": { "value": "1000" }
+    }
+  ],
+  "connections": [
+    [ "pot1:SIG", "uno:A4", "green", [ "v105.6", "h172.4", "v249.6", "h-76.8" ] ],
+    [ "uno:5V", "bb1:bp.50", "red", [ "v57.5", "h282.2", "v-278.4" ] ],
+    [ "uno:GND.2", "bb1:bn.50", "black", [ "v47.9", "h263.1" ] ],
+    [ "bb1:bp.1", "bb1:tp.1", "red", [ "v-10.5", "h-77.6", "v-172.8" ] ],
+    [ "bb1:bn.1", "bb1:tn.1", "black", [ "v-1.3", "h-68", "v-172.8" ] ],
+    [ "pot1:GND", "bb1:tn.35", "black", [ "v76.8" ] ],
+    [ "pot1:VCC", "bb1:tp.37", "red", [ "v57.6", "h-0.8" ] ],
+    [ "ldr1:VCC", "bb1:tp.5", "red", [ "h48" ] ],
+    [ "ldr1:GND", "bb1:tn.4", "black", [ "h0" ] ],
+    [ "ldr1:DO", "bb1:30t.a", "green", [ "h278.4", "v191.4" ] ],
+    [ "uno:2", "bb1:30t.e", "green", [ "v-124.8", "h-111.1" ] ],
+    [ "gas1:VCC", "bb1:tp.13", "red", [ "v0" ] ],
+    [ "gas1:GND", "bb1:tn.14", "black", [ "v0" ] ],
+    [ "uno:8", "bb1:19t.e", "green", [ "v-124.8", "h-153.2" ] ],
+    [ "bz1:1", "bb1:tn.28", "black", [ "v0" ] ],
+    [ "uno:7", "bb1:37t.c", "green", [ "v0" ] ],
+    [ "bz1:2", "bb1:37t.a", "green", [ "v0" ] ],
+    [ "sevseg1:GND", "bb1:tn.50", "black", [ "h9.6", "v86.4" ] ],
+    [ "sevseg1:VCC", "bb1:tp.50", "red", [ "h28.8", "v76.8" ] ],
+    [ "sevseg1:DIO", "bb1:60b.f", "green", [ "h57.6", "v192" ] ],
+    [ "sevseg1:CLK", "bb1:59b.g", "green", [ "h38.4", "v211.2" ] ],
+    [ "btn1:1.l", "bb1:bn.46", "green", [ "v0" ] ],
+    [ "btn1:2.l", "bb1:55b.i", "green", [ "v0" ] ],
+    [ "uno:3", "bb1:55b.g", "green", [ "v0" ] ],
+    [ "bb1:59b.j", "uno:4", "green", [ "v86.4", "h-182.4" ] ],
+    [ "bb1:60b.j", "uno:5", "green", [ "v76.8", "h-211.2" ] ],
+    [ "btn3:1.l", "bb1:bn.39", "green", [ "v0" ] ],
+    [ "btn3:2.l", "bb1:48b.j", "green", [ "v0" ] ],
+    [ "uno:6", "bb1:48b.i", "green", [ "v0" ] ],
+    [ "btn2:1.l", "bb1:bn.45", "green", [ "v0" ] ],
+    [ "btn2:2.l", "bb1:53b.j", "green", [ "v0" ] ],
+    [ "uno:9", "bb1:53b.i", "green", [ "v0" ] ],
+    [ "temp1:GND", "bb1:bn.4", "black", [ "h0" ] ],
+    [ "temp1:VCC", "bb1:bp.4", "red", [ "h0" ] ],
+    [ "temp1:DQ", "uno:A0", "green", [ "h278.4", "v153.6", "h230.4" ] ],
+    [ "bb1:19t.b", "bb1:21t.b", "green", [ "v0" ] ],
+    [ "relay1:VCC", "bb1:tp.18", "red", [ "h0" ] ],
+    [ "relay1:GND", "bb1:tn.17", "black", [ "h0" ] ],
+    [ "relay1:IN", "bb1:21t.d", "green", [ "h0" ] ],
+    [ "bb1:tp.9", "relay1:COM", "green", [ "v-28.5", "h-29.6", "v-307.2" ] ],
+    [ "uno:13", "and1:B", "green", [ "v-19.2", "h-489.2" ] ],
+    [ "and1:OUT", "bb1:17b.j", "green", [ "v86.4", "h268.8" ] ],
+    [ "gas1:DOUT", "bb1:19t.c", "green", [ "v0" ] ],
+    [ "relay1:NO", "and1:A", "green", [ "h-183.6", "v155.4", "h-144" ] ],
+    [ "uno:12", "led2:A", "green", [ "v0" ] ],
+    [ "led2:C", "r2:1", "green", [ "h0" ] ],
+    [ "r2:2", "bb1:bn.6", "green", [ "v0" ] ],
+    [ "led1:A", "bb1:17b.f", "", [ "$bb" ] ],
+    [ "led1:C", "bb1:16b.f", "", [ "$bb" ] ],
+    [ "r1:1", "bb1:16b.h", "", [ "$bb" ] ],
+    [ "r1:2", "bb1:bn.12", "", [ "$bb" ] ]
+  ],
+  "dependencies": {}
+}
